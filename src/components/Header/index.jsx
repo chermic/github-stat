@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import propTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Header = styled.header`
@@ -40,27 +41,30 @@ const NavItem = styled.div`
   }
 `;
 
-function HeaderComponent() {
+const HeaderComponent = ({ isAuthorized }) => {
   return (
     <Header>
       <div className='container'>
         <div>
           <h1>Github exploring</h1>
         </div>
-        <Nav>
-          <NavItem>
-            <Link to='/'>Auth</Link>
-          </NavItem>
-          <NavItem>
-            <Link to='/stat'>Stat</Link>
-          </NavItem>
-          <NavItem>
-            <Link to='/search'>Search</Link>
-          </NavItem>
-        </Nav>
+        {isAuthorized && (
+          <Nav>
+            <NavItem>
+              <Link to='/stat'>Stat</Link>
+            </NavItem>
+            <NavItem>
+              <Link to='/search'>Search</Link>
+            </NavItem>
+          </Nav>
+        )}
       </div>
     </Header>
   )
 }
+
+HeaderComponent.defaultProps = {
+  isAuthorized: propTypes.bool.isRequired,
+};
 
 export default HeaderComponent;

@@ -1,0 +1,27 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<UserListItemComponent /> spec should match snapshot 1`] = `
+<div>
+  <li
+    class="sc-bdVaJa eWpYVg"
+  >
+    <img
+      alt="avatar"
+      class="sc-bwzfXH cBIOLc"
+      src="https://someing.com"
+    />
+    <a
+      href="/users/login"
+    >
+      login
+    </a>
+    <a
+      href="https://somesite.com"
+      rel="noopener noreferrer"
+      target="_blank"
+    >
+      Github profile
+    </a>
+  </li>
+</div>
+`;

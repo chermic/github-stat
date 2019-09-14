@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import styled from 'styled-components';
 
 const Card = styled.section`
@@ -24,13 +25,16 @@ const CardBody = styled.div`
   color: #fff;
 `;
 
-function CardComponent(props) {
-  return (
-    <Card>
-      <CardHeader>{props.title}</CardHeader>
-      <CardBody>{props.content}</CardBody>
-    </Card>
-  );
-}
+const CardComponent = ({ title, content }) => (
+  <Card>
+    <CardHeader>{title}</CardHeader>
+    <CardBody>{content}</CardBody>
+  </Card>
+);
+
+CardComponent.propTypes = {
+  title: propTypes.string.isRequired,
+  content: propTypes.element.isRequired,
+};
 
 export default CardComponent;

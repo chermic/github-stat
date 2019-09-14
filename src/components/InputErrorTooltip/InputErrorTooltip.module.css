@@ -1,0 +1,28 @@
+/* Tooltip text */
+.tooltip {
+  width: 100%;
+  background-color: black;
+  color: #fff;
+  text-align: center;
+  padding: 5px 0;
+  border: 3px solid red;
+  border-radius: 6px;
+  font-size: 10px;
+ 
+  /* Position the tooltip text - see examples below! */
+  position: absolute;
+  z-index: 1;
+  top: 10%;
+  left: 105%;
+}
+
+.tooltip::after {
+  content: "";
+  position: absolute;
+  top: 23%; /* At the bottom of the tooltip */
+  right: 101%;
+  margin-left: -5px;
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent black transparent transparent;
+}

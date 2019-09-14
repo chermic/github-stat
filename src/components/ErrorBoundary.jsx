@@ -1,14 +1,11 @@
 import React from 'react';
 
 export default class ErrorBoundary extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      hasError: false,
-      error: null,
-      info: null,
-    };
-  }
+  state = {
+    hasError: false,
+    error: null,
+    info: null,
+  };
 
   static getDerivedStateFromError(error) {
     this.setState({

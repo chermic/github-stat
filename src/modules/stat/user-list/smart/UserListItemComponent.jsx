@@ -1,4 +1,5 @@
 import React from 'react';
+import propTypes from 'prop-types';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
@@ -33,16 +34,20 @@ const Avatar = styled.img`
 
 
 
-function UserListItemComponent(props){
-  return (
-    <User>
-      <Avatar src={props.avatar_url} alt="avatar" />
-      <Link to={`/users/${props.login}`} avatar={props.avatar_url}>{props.login}</Link>
-      <a href={props.html_url} target='_blank' rel='noopener noreferrer'>
-        Github profile
-      </a>
-    </User>
-  );
-}
+const UserListItemComponent = ({ avatar_url, html_url, login }) => (
+  <User>
+    <Avatar src={avatar_url} alt="avatar" />
+    <Link to={`/users/${login}`}>{login}</Link>
+    <a href={html_url} target='_blank' rel='noopener noreferrer'>
+      Github profile
+    </a>
+  </User>
+);
+
+UserListItemComponent.propTypes = {
+  avatar_url: propTypes.string.isRequired,
+  login: propTypes.string.isRequired,
+  html_url: propTypes.string.isRequired,
+};
 
 export default UserListItemComponent;
